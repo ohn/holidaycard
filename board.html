@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en" ><!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Holiday Card</title>
+	<link rel="stylesheet" href="css/foundation.css">
+	<link rel="stylesheet" href="css/app.css">
+	<script src="js/lib/custom.modernizr.js"></script>
+	<script src="js/respond.js"></script>
+</head>
+<body>
+	<div id="fb-root"></div>
+    <script type="text/javascript">
+        window.fbAsyncInit = function () {
+            // init the FB JS SDK
+            FB.init({
+                appId: '1431638790386857',                        // App ID from the app dashboard
+                status: true,                                 // Check Facebook Login status
+                xfbml: true                                  // Look for social plugins on the page
+            });
+
+            // Additional initialization code such as adding Event Listeners goes here
+        };
+        
+        // Load the SDK asynchronously
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) { return; }
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        
+    </script>
+	<header class="header">
+		<div class="large-12 columns">
+			<a href="index.html"><img id="logo" alt="geometry global" src="img/logo.png"></img></a>
+		</div>
+	</header>
+	<div id="Div1"></div>
+
+	<div id="galleryTab">
+			<span class="lang eng">Gallery</span>
+			<span class="lang jpn">ギャラリー</span>
+			<span class="lang man">画廊</span>
+			<span class="lang por">Galeria</span>
+			<span class="lang spa">Galeria</span>
+			<span class="lang ger">Galerie</span>
+	</div>
+	<div id="galleryContainer">
+		<ul class="gallery">
+				<li><a href="img/examples/dreidel.png"><img data-caption="Dreidel" src="img/examples/th/dreidel.jpg"></a></li>
+				<li><a href="img/examples/flame.png"><img data-caption="Flame" src="img/examples/th/flame.jpg"></a></li>
+				<li><a href="img/examples/gift.png"><img data-caption="Gift" src="img/examples/th/gift.jpg"></a></li>
+				<li><a href="img/examples/glass.png"><img data-caption="Glass" src="img/examples/th/glass.jpg"></a></li>
+				<li><a href="img/examples/horse.png"><img data-caption="Horse" src="img/examples/th/horse.jpg"></a></li>
+				<li><a href="img/examples/santa.png"><img data-caption="Santa" src="img/examples/th/santa.jpg"></a></li>
+				<li><a href="img/examples/star.png"><img data-caption="Star" src="img/examples/th/star.jpg"></a></li>
+				<li><a href="img/examples/tree.png"><img data-caption="Tree" src="img/examples/th/tree.jpg"></a></li>
+		</ul>
+	</div>
+	<div class="row">
+		<div class="large-6 large-centered columns" id="tangram-container">
+			<div id="cropped-container"></div>	
+			<div id="container">
+				<div id="galleryNav">
+					<a class="prev" href="#">&#x25c0;</a>
+					<a class="next" href="#">&#x25b6;</a>
+					<a class="close" href="#"><!--&#10006;-->&#x2715;</a>
+				</div>
+				<div id="gallery"></div>
+				<div id="canvasAlert"></div>
+				<div id="galleryCaption"></div>
+			</div>
+			<div data-alert class="alert-box warning round" id="warning">
+			  <span class="lang eng">Please create an image before sharing.</span>
+			  <span class="lang jpn">それを共有する前にイメージを作成してください</span>
+			  <span class="lang man">共享之前,请创造一个图像</span>
+			  <span class="lang por">Por favor criar uma imagem antes de compartilhar</span>
+			  <span class="lang spa">Por favor cree una imagen antes de compartir</span>
+			  <span class="lang ger">Bitte erstellen Sie ein Bild vor dem Versenden.</span>
+			  <a href="#" class="close">&times;</a>
+			</div>
+			<!-- Share complete -->
+			<div data-alert class="alert-box warning round" id="completion">
+				<span class="lang eng">Your image has been shared.</span>
+				<span class="lang jpn">あなたのイメージが共有されている</span>
+				<span class="lang man">你的形象已经被共享</span>
+				<span class="lang por">Sua imagem foi compartilhada</span>
+				<span class="lang spa">Su imagen ha sido compartida</span>
+				<span class="lang ger">Ihr Bild wurde gesendet.</span>
+			  <a href="#" class="close">&times;</a>
+			</div>
+			<div class="bottom"></div>
+			<div class="bottom">
+				<a class="share" data-dropdown="socialShare">
+					<span class="lang eng">share</span>
+					<span class="lang spa">cuota</span>
+					<span class="lang man">共享</span>
+					<span class="lang por">ação</span>
+					<span class="lang jpn">シェア</span>
+					<span class="lang ger">senden</span>
+				</a>
+				<a class="clear-canvas" href="#" data-reveal-id="confirmation">
+					<span class="lang eng">clear</span>
+					<span class="lang spa">borrar</span>
+					<span class="lang man">清除</span>
+					<span class="lang por">limpar</span>
+					<span class="lang jpn">クリアする</span>
+					<span class="lang ger">löschen</span>
+				</a>			
+				<a class="top">&#x25B2;<span class="lang eng">top</span><span class="lang jpn">トップへ</span><span class="lang man">最上方</span><span class="lang por">topo</span><span class="lang spa">arriba</span><span class="lang ger">top</span>
+				</a>
+				<div class="clear"></div>
+			</div>
+			<div id="socialShare" class="f-dropdown content" data-dropdown-content>
+			  <a href="#" class="email social" id="email">share with email</a>
+			  <a href="#" class="fb social" id="facebook">share on facebook</a>
+			  <a target="_blank" href="https://twitter.com/share?text=I%20just%20made%20my%20holiday%20beautiful.%20Now%20it%E2%80%99s%20your%20turn!&url=http%3A%2F%2Fwww.geometryholidaycard.com%2Findex.html%3Fu%3Dtw" class="twitter social last" id="twitter">share on twitter</a>
+                <a href="#" class="email-click hidden" data-reveal-id="email-form">share with email</a>		  
+			</div>
+		</div>
+	</div>
+
+	<!-- Reveal Modals begin -->
+	<div id="confirmation" class="reveal-modal" data-reveal>
+	  <p>
+	  	<span class="lang eng">Are you sure you want to clear the image?</span>
+	  	<span class="lang jpn">あなたは、画像を消去してもよろしいですか？</span>
+		<span class="lang man">您确定要清除的形象呢？</span>
+		<span class="lang por">Tem certeza de que deseja apagar a imagem?</span>
+	    <span class="lang spa">¿Está seguro que desea borrar la imagen?</span>
+	    <span class="lang ger">Sind Sie sicher, dass Sie um das Bild zu löschen?</span>
+	  </p>
+	  <a href="#" class="button alert close-reveal-modal">Cancel</a>
+	  <a href="#" class="button" id="clear-stage">Proceed</a>
+	  <a class="close-reveal-modal">&#215;</a>
+	</div>
+	
+	<!-- email form -->
+	<div id="email-form" class="reveal-modal" data-reveal>
+		<form id="emailForm" data-abide> 
+			<div class="row"> 
+				<div class="small-12"> 
+					<div class="row"> 
+						<div class="small-4 columns"> <label for="right-label" class="right inline">Your Name: <small>required</small></label> </div> 
+						<div class="small-8 columns"> <input name="inputName" type="text" id="inputName" required pattern="[a-zA-Z]+">
+						<small class="error">Name is required and must be a string.</small></div>
+					</div>
+					<div class="row"> 
+						<div class="small-4 columns"> <label for="right-label" class="right inline">Friend's Email: <small>required</small></label> </div> 
+						<div class="small-8 columns"> <input type="text" cols="55" rows="2" id="inputEmail" name="inputEmail" required pattern="^((\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*)\s*[;,.]{0,1}\s*)+$">
+							<small class="note">Separate multiple emails by comma.</small>
+							<small class="error">An email address is required.</small></div>
+					</div>
+					<div class="row"> 
+						<div class="small-4 columns"> <label for="right-label" class="right inline">Message: </label> </div> 
+						<div class="small-8 columns"> <textarea name="Comment" cols="55" rows="5" id="Message" maxlength="201"></textarea>
+						<small class="note">This text area has a limit of 200 characters.</small>
+						</div>
+					</div>
+					<div class="row"> 						
+						<div class="small-8 small-offset-4 columns"> 
+							<input class="submit button" type="submit" name="Submit" value="Submit">
+							<a href="#" class="button alert close-reveal-modal">Cancel</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	<div id="portraitPlease">
+		<span class="lang eng">Please use Portrait Mode</span>
+		<!--<span class="lang jpn">Please use Portrait Mode</span>
+		<span class="lang man">Please use Portrait Mode</span>
+		<span class="lang por">Please use Portrait Mode</span>
+		<span class="lang span">Por Favor Portrait Mode</span>-->
+	</div>
+	
+	<div id="canvasAlertStage">
+		<div class="first">
+			<span class="lang eng"><h2>Express yourself</h2><p>Drag these colored triangles to the grid below to bring your holiday inspiration to life.</p></span>
+			<span class="lang man"><h2>表现自我</h2><p>将彩色三角形拖放至下面的方格，启动节日灵感。</p></span>
+			<span class="lang jpn"><h2>自分を表現してみましょう</h2><p>下の三角形を枠内にドラッグさせると、ホリデーのインスピレーションが誕生！</p></span>
+			<span class="lang por"><h2> Inspire-se</h2><p>Arraste os triângulos coloridos para estes quadros e demonstre seu espírito de Natal.</p></span>
+			<span class="lang spa"><h2>Exprésate</h2><p>Arrastra los triángulos de colores y colócalos en las casillas para hacer realidad tus soñadas Navidades y fiestas de fin de año.</p></span>
+			<span class="lang ger"><h2>Seien Sie kreativ</h2><p>Leben Sie Ihre Feiertagsinspiration aus: Ziehen Sie die farbigen Dreiecke in das Gitternetz unten.</p></span>
+		</div>
+		<div class="second">
+			<span class="lang eng"><p>Click or tap the triangle twice to rotate.</p></span>
+			<span class="lang man"><p>放置好后双击或轻点三角形两次，使其旋转方向&#12290;</p></span>
+			<span class="lang jpn"><p>移動させた後ダブルクリックするかダブルタップすると、三角形が回転します&#12290;</p></span>
+			<span class="lang por"><p>Depois de colocado, faça duplo clique ou toque duas vezes no triângulo para rodar.</p></span>
+			<span class="lang spa"><p>Una vez colocados, haz doble clic o pulsa dos veces los triángulos para girarlos.</p></span>
+			<span class="lang ger"><p>Doppelklicken oder Doppeltippen Sie dann auf das Dreieck, um es zu rotieren.</p></span>
+		</div>
+		<div class="third">
+			<span class="lang eng"><p>Please make sure your pop-up blocker is disabled.</p></span>
+			<span class="lang man"><p>请确保您的弹出窗口拦截器被禁用&#12290;</p></span>
+			<span class="lang jpn"><p>あなたのポップアップブロッカーが無効になっていることを確認してください&#12290;</p></span>
+			<span class="lang por"><p>Verifique se o seu bloqueador de pop-up está desativado.</p></span>
+			<span class="lang spa"><p>Por favor, asegúrese de que su bloqueador de ventanas emergentes está desactivado.</p></span>
+			<span class="lang ger"><p>Bitte stellen Sie sicher, dass Ihr Pop-up-Blocker deaktiviert ist.</p></span>
+		</div>
+	</div>
+	
+
+  <script src="js/lib/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script src="js/foundation/foundation.reveal.js"></script>
+  <script src="js/foundation/foundation.dropdown.js"></script>
+  <script src="js/foundation/foundation.abide.js"></script>
+  <script src="js/swipe.min.js"></script>
+  <script src="js/lib/jquery.fittext.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/lib/kinetic-v4.3.3.min.js"></script> 
+  
+    <script src="js/Tools.js"></script>
+	<script src="js/SocialSharing.js"></script>
+	
+ 
+  <script src="js/tangram.js"></script>
+  <script>
+    if (Modernizr.canvas) {
+    $(document).foundation({
+	  active_class: 'open'
+	});
+	}
+  </script>
+</body>
+</html>
